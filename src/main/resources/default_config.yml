@@ -8,7 +8,9 @@ server-mappings:
   PROXY-SERVER-NAME2: PTERODACTYL SERVER UUID HERE
 
 #Auto restart based on RAM usage
-ram-usage-threshold: 80%
+ram-restarted-servers: [""]
+ram-restart-enabled: false
+ram-usage-threshold-percent: 80
 ram-usage-check-seconds: 30
 ram-usage-restart-delay-minutes: 10
 
@@ -21,7 +23,6 @@ pterodactyl-already-shutdown: "§cServer already shutdown"
 pterodactyl-invalid-uuid: "§cInvalid UUID in config"
 pterodactyl-invalid-request: "§cSomething went wrong..."
 pterodactyl-success: "§aSuccessfully sent §6%action% §aaction to §6%server%"
-
 
 # Pterodactyl powerctl status replies
 pterodactyl-fetching-stats: "§aFetching Server stats from API..."
@@ -61,3 +62,9 @@ sendall-invalid-server: "§cServer not found: §6%server%"
 sendall-players-offline: "§cNo players are online!"
 sendall-success: "§aSuccessfully sent §6%success%§a players to §6%server%"
 sendall-sent-message: "§aYou have been collectively sent to §6%server% §aBy §6%player%"
+
+# RamRestart
+ramrestart-invalid-usage: "§cCorrect Usage: §6/ramrestart <enable|disable>"
+ramrestart-pterodactyl-not-found: "§cCouldn't find Pterodactyl server entry in config for §6%server%"
+ramrestart-fail: "§cCouldn't §6%action% §aRamRestart on §6%server%"
+ramrestart-success: "§aSuccessfully §6%action% §aRamRestart on §6%server%"

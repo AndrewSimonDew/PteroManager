@@ -1,4 +1,4 @@
-package org.andrexserver.pteroManager.Commands;
+package org.andrexserver.pteroManager.Commands.PlayerMgmtCommands;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
@@ -7,7 +7,7 @@ import org.andrexserver.pteroManager.Main;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProxyCount implements SimpleCommand {
+public class ProxyCountCommand implements SimpleCommand {
 
     @Override
     public void execute(Invocation invocation) {

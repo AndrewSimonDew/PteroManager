@@ -1,4 +1,4 @@
-package org.andrexserver.pteroManager.Commands;
+package org.andrexserver.pteroManager.Commands.PterodactylCommands;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServerCtl implements SimpleCommand {
+public class ServerCtlCommand implements SimpleCommand {
 
     @Override
     public void execute(Invocation invocation) {

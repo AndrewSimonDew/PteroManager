@@ -1,4 +1,4 @@
-package org.andrexserver.pteroManager.Commands;
+package org.andrexserver.pteroManager.Commands.PlayerMgmtCommands;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class PlayerInfo implements SimpleCommand {
+public class PlayerInfoCommand implements SimpleCommand {
     @Override
     public void execute(Invocation invocation) {
         CommandSource source = invocation.source();

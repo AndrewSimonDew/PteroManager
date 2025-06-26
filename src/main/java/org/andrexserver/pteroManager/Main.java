@@ -12,7 +12,13 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
-import org.andrexserver.pteroManager.Commands.*;
+import org.andrexserver.pteroManager.Commands.PlayerMgmtCommands.PlayerCountCommand;
+import org.andrexserver.pteroManager.Commands.PlayerMgmtCommands.PlayerInfoCommand;
+import org.andrexserver.pteroManager.Commands.PlayerMgmtCommands.ProxyCountCommand;
+import org.andrexserver.pteroManager.Commands.PterodactylCommands.SendCommand;
+import org.andrexserver.pteroManager.Commands.PterodactylCommands.SendAllCommand;
+import org.andrexserver.pteroManager.Commands.PterodactylCommands.ServerCtlCommand;
+import org.andrexserver.pteroManager.Commands.RamCommands.RamRestartCommand;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -45,12 +51,13 @@ public class Main {
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("Pterodactyl-Manager Initialized.");
-        proxy.getCommandManager().register("serverctl",new ServerCtl());
-        proxy.getCommandManager().register("sendall", new SendAll());
-        proxy.getCommandManager().register("send", new Send());
-        proxy.getCommandManager().register("playerinfo",new PlayerInfo());
-        proxy.getCommandManager().register("playercount", new PlayerCount());
-        proxy.getCommandManager().register("proxycount",new ProxyCount());
+        proxy.getCommandManager().register("serverctl",new ServerCtlCommand());
+        proxy.getCommandManager().register("sendall", new SendAllCommand());
+        proxy.getCommandManager().register("send", new SendCommand());
+        proxy.getCommandManager().register("playerinfo",new PlayerInfoCommand());
+        proxy.getCommandManager().register("playercount", new PlayerCountCommand());
+        proxy.getCommandManager().register("proxycount",new ProxyCountCommand());
+        proxy.getCommandManager().register("ramrestart",new RamRestartCommand());
     }
 
     public static void sendMessage(CommandSource source, String text) throws IllegalArgumentException {

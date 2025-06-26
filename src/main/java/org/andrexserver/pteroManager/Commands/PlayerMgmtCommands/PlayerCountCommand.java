@@ -1,4 +1,4 @@
-package org.andrexserver.pteroManager.Commands;
+package org.andrexserver.pteroManager.Commands.PlayerMgmtCommands;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PlayerCount implements SimpleCommand {
+public class PlayerCountCommand implements SimpleCommand {
 
     @Override
     public void execute(Invocation invocation) {

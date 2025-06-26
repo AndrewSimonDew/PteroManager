@@ -1,6 +1,7 @@
 package org.andrexserver.pteroManager;
 
 import org.spongepowered.configurate.CommentedConfigurationNode;
+import org.spongepowered.configurate.ConfigurationOptions;
 import org.spongepowered.configurate.loader.ConfigurationLoader;
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader;
 
@@ -14,7 +15,7 @@ import java.util.Map;
 public class ConfigManager {
 
     private final Path configFile;
-    private ConfigurationLoader<@org.jetbrains.annotations.NotNull CommentedConfigurationNode> loader;
+    private ConfigurationLoader<CommentedConfigurationNode> loader;
     private CommentedConfigurationNode rootNode;
 
     public ConfigManager(Path dataFolder, String fileName, String defaultResource) {
@@ -40,21 +41,20 @@ public class ConfigManager {
 
             loader = YamlConfigurationLoader.builder()
                     .path(configFile)
+                    .indent(4) // << More readable indentation
                     .build();
 
-            rootNode = loader.load();
+            rootNode = loader.load(ConfigurationOptions.defaults().shouldCopyDefaults(true));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Get a node by path, variadic keys
     public CommentedConfigurationNode getNode(Object... path) {
         return rootNode.node(path);
     }
 
-    // Save the config to disk
     public void save() {
         try {
             loader.save(rootNode);
@@ -63,10 +63,9 @@ public class ConfigManager {
         }
     }
 
-    // Reload config from disk
     public void reload() {
         try {
-            rootNode = loader.load();
+            rootNode = loader.load(ConfigurationOptions.defaults().shouldCopyDefaults(true));
         } catch (IOException e) {
             e.printStackTrace();
         }
