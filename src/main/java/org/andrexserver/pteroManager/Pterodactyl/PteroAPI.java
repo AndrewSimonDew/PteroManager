@@ -33,15 +33,15 @@ public class PteroAPI {
 
 
         HttpClient client = HttpClient.newHttpClient();
-        String json = "{\"signal\":\""+ action.getActionName() +"\"}";
+        String json = "{\"signal\":\""+ action.getActionName().replace("pterodactyl-","") +"\"}";
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(url+"/api/client/servers/" + serverUUID + "/power"))
-                .header("Authorization", "Bearer " + apiKey)
-                .header("Content-Type", "application/json")
-                .header("Accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
-                .build();
+                    .uri(new URI(url + "/api/client/servers/" + serverUUID + "/power"))
+                    .header("Authorization", "Bearer " + apiKey)
+                    .header("Content-Type", "application/json")
+                    .header("Accept", "Application/vnd.pterodactyl.v1+json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             if(response.body().length() > 10) {

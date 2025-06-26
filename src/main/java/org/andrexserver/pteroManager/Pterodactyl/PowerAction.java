@@ -1,7 +1,7 @@
 package org.andrexserver.pteroManager.Pterodactyl;
 
 public enum PowerAction {
-    START("start"), STOP("stop"), RESTART("restart");
+    START("pterodactyl-start"), STOP("pterodactyl-stop"), RESTART("pterodactyl-restart");
     private final String actionName;
     PowerAction(String actionName) {
         this.actionName = actionName;

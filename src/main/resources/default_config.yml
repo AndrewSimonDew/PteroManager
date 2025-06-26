@@ -3,22 +3,61 @@
 pterodactyl-apikey: YOUR API KEY HERE
 pterodactyl-url: https://YOUR PANEL URL HERE
 
-#ERROR MESSAGES from /serverctl command
-invalid-server: "§cServer §6%server% §cnot found!"
-invalid-status: "§cCouldn't fetch resources."
-already-running: "§cServer already running."
-already-down: "§cServer already shutdown"
-invalid-uuid: "§cInvalid UUID in config"
-invalid-request: "§cSomething went wrong..."
-
-#success
-success: "§aSuccessfully sent §6%action% §ato §6%server%"
-
 server-mappings:
   PROXY-SERVER-NAME1: PTERODACTYL SERVER UUID HERE
   PROXY-SERVER-NAME2: PTERODACTYL SERVER UUID HERE
 
-#RAM
+#Auto restart based on RAM usage
 ram-usage-threshold: 80%
 ram-usage-check-seconds: 30
 ram-usage-restart-delay-minutes: 10
+
+# Pterodactyl powerctl replies
+pterodactyl-invalid-action: "§6Unknown action! §c/serverctl <start|stop|restart|status> <server>"
+pterodactyl-invalid-server: "§cServer §6%server% §cnot found!"
+pterodactyl-invalid-status: "§cCouldn't fetch resources."
+pterodactyl-already-running: "§cServer already running."
+pterodactyl-already-shutdown: "§cServer already shutdown"
+pterodactyl-invalid-uuid: "§cInvalid UUID in config"
+pterodactyl-invalid-request: "§cSomething went wrong..."
+pterodactyl-success: "§aSuccessfully sent §6%action% §aaction to §6%server%"
+
+
+# Pterodactyl powerctl status replies
+pterodactyl-fetching-stats: "§aFetching Server stats from API..."
+
+# Playercount
+playercount-invalid-usage: "§cUsage /playercount <server>"
+playercount-server-not-found: "§cServer not found: §6%server%"
+playercount-success: "§aThere are §6%players%§a players connect to §6 %server%"
+
+# Playerinfo
+playerinfo-invalid-usage: "§cUsage /playerinfo <player>"
+playerinfo-offline: "§cPlayer §6%player%§c not online!"
+playerinfo-info-format: |
+  §a=== Player Info ===
+  §6Username: §a%player%
+  §6UUID: §a%uuid%
+  §6Current Server: §a%server%
+  §6Ping: §a%ping% ms
+  §6Client Brand: §a%brand%
+  §a=== Player Info ===
+
+# Proxycount
+proxycount-invalid-usage: "§cUsage /proxycount"
+proxycount-success: "§aOnline players: §e%online%§a/§e%max%"
+
+# Send
+send-invalid-usage: "§cCorrect Usage: §6/send <player> <server>"
+send-invalid-server: "§cServer not found: §6%server%"
+send-player-offline: "§cPlayer §6%player%§c is offline!"
+send-couldnt-send: "§cCouldn't send §6%player%§c to §6%server%"
+send-success: "§aSuccessfully sent §6%player%§a to §6%server%"
+send-sent-message: "§aYou have been sent to §6%server% §aBy §6%player%"
+
+# Sendall
+sendall-invalid-usage: "§cCorrect Usage: §6/sendall <player> <server>"
+sendall-invalid-server: "§cServer not found: §6%server%"
+sendall-players-offline: "§cNo players are online!"
+sendall-success: "§aSuccessfully sent §6%success%§a players to §6%server%"
+sendall-sent-message: "§aYou have been collectively sent to §6%server% §aBy §6%player%"

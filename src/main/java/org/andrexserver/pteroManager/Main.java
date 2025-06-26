@@ -12,7 +12,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
-import org.andrexserver.pteroManager.Commands.ServerCtl;
+import org.andrexserver.pteroManager.Commands.*;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -46,6 +46,11 @@ public class Main {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         logger.info("Pterodactyl-Manager Initialized.");
         proxy.getCommandManager().register("serverctl",new ServerCtl());
+        proxy.getCommandManager().register("sendall", new SendAll());
+        proxy.getCommandManager().register("send", new Send());
+        proxy.getCommandManager().register("playerinfo",new PlayerInfo());
+        proxy.getCommandManager().register("playercount", new PlayerCount());
+        proxy.getCommandManager().register("proxycount",new ProxyCount());
     }
 
     public static void sendMessage(CommandSource source, String text) throws IllegalArgumentException {
@@ -69,5 +74,11 @@ public class Main {
     public CompletableFuture<Boolean> sendPlayerToServer(Player player, RegisteredServer server) {
         return player.createConnectionRequest(server).connect()
                 .thenApply(ConnectionRequestBuilder.Result::isSuccessful);
+    }
+    public static String placeholderReplace(String raw, Map<String, String> values) {
+        for (Map.Entry<String, String> entry : values.entrySet()) {
+            raw = raw.replace("%" + entry.getKey() + "%", entry.getValue());
+        }
+        return raw;
     }
 }
