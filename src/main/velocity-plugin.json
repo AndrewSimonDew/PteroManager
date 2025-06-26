@@ -1,0 +1,7 @@
+{
+  "id": "pteromanager",
+  "name": "PteroManager",
+  "version": "1.0.0",
+  "main": "org.andrexserver.pteromanager.Main",
+  "author": "Andrex"
+}

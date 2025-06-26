@@ -1,0 +1,24 @@
+
+# PTERODACTYL
+pterodactyl-apikey: YOUR API KEY HERE
+pterodactyl-url: https://YOUR PANEL URL HERE
+
+#ERROR MESSAGES from /serverctl command
+invalid-server: "§cServer §6%server% §cnot found!"
+invalid-status: "§cCouldn't fetch resources."
+already-running: "§cServer already running."
+already-down: "§cServer already shutdown"
+invalid-uuid: "§cInvalid UUID in config"
+invalid-request: "§cSomething went wrong..."
+
+#success
+success: "§aSuccessfully sent §6%action% §ato §6%server%"
+
+server-mappings:
+  PROXY-SERVER-NAME1: PTERODACTYL SERVER UUID HERE
+  PROXY-SERVER-NAME2: PTERODACTYL SERVER UUID HERE
+
+#RAM
+ram-usage-threshold: 80%
+ram-usage-check-seconds: 30
+ram-usage-restart-delay-minutes: 10
